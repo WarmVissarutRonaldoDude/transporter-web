@@ -36,6 +36,26 @@ const TrackingLabel = styled.label`
     display: inline;
 `;
 
+const ErrorLabel = styled.label`
+    color: #c51162;
+    margin: 20px;
+    font-family: sans-serif;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-align: center;
+    display: inline;
+`;
+
+const DetailLabel = styled.label`
+    color: #03dac6;
+    margin: 20px;
+    font-family: sans-serif;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+`;
+
 const FindButton = styled.button.attrs({
     disabled: props => props.busy,
   })`
@@ -76,6 +96,13 @@ class Shipping extends React.Component {
         const shippingDetail = this.props.store.shippingDetail &&
         this.props.store.shippingDetail.shippingData ?
             JSON.stringify(this.props.store.shippingDetail.shippingData, null, 4) : '';
+        let shippingError = this.props.store.shippingError ?
+            JSON.stringify(this.props.store.shippingError, null, 4) : null;
+
+        if (!shippingError && !shippingDetail &&
+            this.props.store.shippingDetail) {
+            shippingError = `Shipping ${this.props.store.submitShippingId || ''} is not exist`;
+        }
         return (
             <div>
                 <Header>Shipping Page Tracking</Header>
@@ -96,12 +123,34 @@ class Shipping extends React.Component {
                     </FindButton>
                 </div>
                 <div>
-                    <TrackingLabel>
-                        Shipping Detail:
-                    </TrackingLabel>
-                    <TrackingLabel>
-                        {shippingDetail}
-                    </TrackingLabel>
+                    {
+                        shippingDetail ?
+                        <TrackingLabel>
+                            Shipping Detail:
+                        </TrackingLabel>
+                        : null
+                    }
+                    {
+                        !shippingDetail && shippingError ?
+                        <ErrorLabel>
+                            Error :
+                        </ErrorLabel>
+                        : null
+                    }
+                    {
+                        shippingDetail ?
+                        <DetailLabel>
+                            {shippingDetail}
+                        </DetailLabel>
+                        : null
+                    }
+                    {
+                        !shippingDetail && shippingError ?
+                        <ErrorLabel>
+                            {shippingError}
+                        </ErrorLabel>
+                        : null
+                    }
                 </div>
             </div>
         );

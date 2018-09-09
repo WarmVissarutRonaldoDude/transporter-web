@@ -11,13 +11,19 @@ const reducers = {
     return {
         ...state,
         shippingDetail: detail,
-        error
+        shippingError: error
     };
   },
   INPUT_SHIPPING_CODE: ({ ...state }, { id }) => {
     return {
         ...state,
         shippingId: id,
+    };
+  },
+  SUBMIT_SHIPPING_CODE: ({ ...state }, { id }) => {
+    return {
+        ...state,
+        submitShippingId: id,
     };
   }
 };

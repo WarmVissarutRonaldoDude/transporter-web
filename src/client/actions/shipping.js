@@ -7,10 +7,18 @@ export function UPDATE_STATE(key, value) {
 }
 
 export function setShippingDetail(detail, error = null) {
+    const errMsg = error && error.message ? error.message : null;
     return {
         type: 'SET_SHIPPING_DETAIL',
         detail,
-        error,
+        error: errMsg,
+    };
+}
+
+export function setSubmitShippingCode(id) {
+    return {
+        type: 'SUBMIT_SHIPPING_CODE',
+        id,
     };
 }
 
@@ -19,6 +27,7 @@ export function getShippingDetail(id) {
     const path = `${shippingPath}/${id}`;
 
     return dispatch => {
+        dispatch(setSubmitShippingCode(id));
         // now make API request
         Api.get({
           path,
