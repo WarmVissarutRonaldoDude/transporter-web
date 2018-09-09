@@ -23,3 +23,6 @@ http://localhost:6484
 - /ping : health check
 - / : landing page (currently just get shipping detail)
 
+## TODO LIST
+- Page for create shipping form
+- UI/UX
