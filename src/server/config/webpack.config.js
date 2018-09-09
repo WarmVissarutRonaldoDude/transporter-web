@@ -8,7 +8,7 @@ const CompressionPlugin = require('compression-webpack-plugin');
 dotenvExpand(dotenv.config());
 
 const enableHMR = (process.env.ENABLE_WEBPACK_HMR === 'true');
-const envVars = ['NODE_ENV', 'ENABLE_WEBPACK_HMR'];
+const envVars = ['NODE_ENV', 'ENABLE_WEBPACK_HMR', 'SERVER_PATH'];
 
 let outputFilename = 'js/[name].min.js';
 

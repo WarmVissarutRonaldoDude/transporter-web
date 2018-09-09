@@ -9,6 +9,7 @@
   "author": "Vissarut T.",
   "license": "ISC",
   "dependencies": {
+    "@koa/cors": "2",
     "babel-cli": "6.26.0",
     "babel-core": "6.26.0",
     "babel-loader": "7.1.2",
@@ -37,10 +38,8 @@
     "koa-session": "5.5.1",
     "koa-views": "6.0.2",
     "koa-webpack-middleware": "1.0.7",
-    "libphonenumber-js": "^0.4.44",
     "lodash.get": "4.4.2",
     "moment": "2.19.3",
-    "nevergent": "github:hooqtv/nevergent#v2.6.25",
     "node-fetch": "1.7.3",
     "node-polyglot": "2.2.2",
     "nodemon": "1.12.4",

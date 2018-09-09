@@ -24,7 +24,7 @@ function initWebpack(app) {
   }));
 
   app.use(hotMiddleware(compiled, {
-    log: console.log, // eslint-disable-line
+    log: console.log,
   }));
 }
 

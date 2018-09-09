@@ -6,6 +6,19 @@ const reducers = {
     return Object.assign({
         ...state,
     }, obj);
+  },
+  SET_SHIPPING_DETAIL: ({ ...state }, { detail, error }) => {
+    return {
+        ...state,
+        shippingDetail: detail,
+        error
+    };
+  },
+  INPUT_SHIPPING_CODE: ({ ...state }, { id }) => {
+    return {
+        ...state,
+        shippingId: id,
+    };
   }
 };
 

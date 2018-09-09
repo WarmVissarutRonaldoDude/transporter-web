@@ -34,8 +34,7 @@ const HTML = ({ content, styles, store }) => (
         }
 
         body {
-          font-family: "ProximaNovaSoft";
-          background-color: #f4f4f4;
+          font-family: sans-serif;
         }
 
         #mount {
